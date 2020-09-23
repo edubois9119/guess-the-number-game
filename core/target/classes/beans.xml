@@ -5,10 +5,11 @@
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="numberGenerator" class="com.ericadubois.NumberGeneratorImp"/>
-    <bean id ="game" class="com.ericadubois.GameImp">
+
+    <bean id ="game" class="com.ericadubois.GameImp" init-method="reset">
         <!--used for constructor based dependency injection-->
         <!--<constructor-arg ref="numberGenerator"/>-->
-        
+
         <!--used for setter based dependency injection (name = field name, ref = bean id)-->
         <property name="numberGenerator" ref="numberGenerator"/>
     </bean>

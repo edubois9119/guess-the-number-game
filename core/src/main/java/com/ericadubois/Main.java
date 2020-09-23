@@ -30,8 +30,9 @@ public class Main {
         // get Game bean from context(container)
         Game game = context.getBean(Game.class);
 
-        //call reset method
-        game.reset();
+        //removing this method call from main class, will be called by container instead
+       /* //call reset method
+        game.reset();*/
 
         //close context (container) prevent memory resource leaks
         context.close();

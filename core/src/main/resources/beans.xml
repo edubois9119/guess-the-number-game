@@ -5,10 +5,13 @@
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="numberGenerator" class="com.ericadubois.NumberGeneratorImp"/>
-    <bean id ="game" class="com.ericadubois.GameImp">
+
+    <!-- added init-method = "reset" so that is called by the container rather than in the Main.java class.
+         In some cases this could also be added as a default in the beans tag above to apply to all beans-->
+    <bean id ="game" class="com.ericadubois.GameImp" init-method="reset">
         <!--used for constructor based dependency injection-->
         <!--<constructor-arg ref="numberGenerator"/>-->
-        
+
         <!--used for setter based dependency injection (name = field name, ref = bean id)-->
         <property name="numberGenerator" ref="numberGenerator"/>
     </bean>
