@@ -2,6 +2,7 @@ package com.ericadubois;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -12,7 +13,10 @@ public class GameImp implements Game{
     private static final Logger log = LoggerFactory.getLogger(GameImp.class);
 
     // == fields==
+
+    @Autowired
     private NumberGenerator numberGenerator;
+
     //how many times the player can guess the number before the game is over
     private int guessCount = 10;
     //holds value of randomly generated number for player to guess
@@ -51,11 +55,10 @@ public class GameImp implements Game{
     }
     // ==public methods==
 
-    public void setNumberGenerator(NumberGenerator numberGenerator){
+   /* No longer needed with autowiring
+   public void setNumberGenerator(NumberGenerator numberGenerator){
         this.numberGenerator = numberGenerator;
-    }
-
-
+    }*/
 
     @Override
     public int getNumber() {
