@@ -7,8 +7,9 @@
     <bean id="numberGenerator" class="com.ericadubois.NumberGeneratorImp"/>
 
     <!-- added init-method = "reset" so that is called by the container rather than in the Main.java class.
-         In some cases this could also be added as a default in the beans tag above to apply to all beans-->
-    <bean id ="game" class="com.ericadubois.GameImp" init-method="reset">
+         In some cases this could also be added as a default in the beans tag above to apply to all beans
+         when using xml to initialize this line should be added after "com.ericadubois.GameImp" init-method="reset"-->
+    <bean id ="game" class="com.ericadubois.GameImp" >
         <!--used for constructor based dependency injection-->
         <!--<constructor-arg ref="numberGenerator"/>-->
 
@@ -16,4 +17,5 @@
         <property name="numberGenerator" ref="numberGenerator"/>
     </bean>
 
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
 </beans>

@@ -3,6 +3,9 @@ package com.ericadubois;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class GameImp implements Game{
 
     // == constants==
@@ -30,13 +33,9 @@ public class GameImp implements Game{
         this.numberGenerator = numberGenerator;
     }*/
 
-    // ==public methods==
-
-    public void setNumberGenerator(NumberGenerator numberGenerator){
-        this.numberGenerator = numberGenerator;
-    }
-
+    // == init-method ==
     //called at intial start of game and then at end of game to reset values
+    @PostConstruct
     @Override
     public void reset() {
         smallest = 0;
@@ -46,6 +45,17 @@ public class GameImp implements Game{
         number = numberGenerator.next();
         log.debug("number is {}", number);
     }
+    @PreDestroy
+    public void preDestroy(){
+        log.info("in Game preDestroy()");
+    }
+    // ==public methods==
+
+    public void setNumberGenerator(NumberGenerator numberGenerator){
+        this.numberGenerator = numberGenerator;
+    }
+
+
 
     @Override
     public int getNumber() {
