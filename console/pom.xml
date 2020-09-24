@@ -11,5 +11,12 @@
 
     <artifactId>console</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.ericadubois</groupId>
+            <artifactId>core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
