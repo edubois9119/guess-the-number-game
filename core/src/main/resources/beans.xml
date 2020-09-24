@@ -7,22 +7,28 @@
            http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:annotation-config/>
+    <context:component-scan base-package="com.ericadubois"/>
 
-    <bean id="numberGenerator" class="com.ericadubois.NumberGeneratorImp"/>
+    <!-- enables anntations such as @PostConstruct and @PreDestroy. Commenting out to use component scan context instead
+    for @Component autowiring that allows us to no longer use xml.This context is already included in the component-scan.
+    <context:annotation-config/> -->
 
-    <!-- added init-method = "reset" so that is called by the container rather than in the Main.java class.
+    <!-- With Component scanning we no longer need the bean definitions as they will be found automatically by component
+    scanning-->
+    <!--<bean id="numberGenerator" class="com.ericadubois.NumberGeneratorImp"/>
+
+    &lt;!&ndash; added init-method = "reset" so that is called by the container rather than in the Main.java class.
          In some cases this could also be added as a default in the beans tag above to apply to all beans
-         when using xml to initialize this line should be added after "com.ericadubois.GameImp" init-method="reset"-->
+         when using xml to initialize this line should be added after "com.ericadubois.GameImp" init-method="reset"&ndash;&gt;
     <bean id ="game" class="com.ericadubois.GameImp" >
-        <!--used for constructor based dependency injection-->
-        <!--<constructor-arg ref="numberGenerator"/>-->
+        &lt;!&ndash;used for constructor based dependency injection&ndash;&gt;
+        &lt;!&ndash;<constructor-arg ref="numberGenerator"/>&ndash;&gt;
 
-        <!-- No longer needed with autowiring.
+        &lt;!&ndash; No longer needed with autowiring.
         used for setter based dependency injection (name = field name, ref = bean id)
-        <property name="numberGenerator" ref="numberGenerator"/>-->
+        <property name="numberGenerator" ref="numberGenerator"/>&ndash;&gt;
     </bean>
-
+-->
     <!-- this is no longer needed since we added the context:annotation-config.
     <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/> -->
 </beans>
