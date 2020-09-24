@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
@@ -27,7 +26,13 @@ public class Main {
         log.info("number = {}", number);
 
         // get Game bean from context(container)
-        Game game = context.getBean(Game.class);
+       /* Game game = context.getBean(Game.class)*/;
+
+        // get Message Generator bean from context(container)
+        MessageGenerator messageGenerator = context.getBean(MessageGenerator.class);
+
+        log.info("getMainMessagae= {}", messageGenerator.getMainMessage());
+        log.info("getResultMessagae= {}", messageGenerator.getResultMessage());
 
         //removing this method call from main class, will be called by container instead
        /* //call reset method

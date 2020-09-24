@@ -19,4 +19,9 @@ public class AppConfig {
         return new GameImp();
     }
 
+    @Bean
+    public MessageGenerator messageGenerator() {
+        return new MessageGeneratorImp();
+    }
+
 }
