@@ -1,6 +1,9 @@
 package com.ericadubois;
 
 
+import com.ericadubois.console.AppConfig;
+import com.ericadubois.console.MessageGenerator;
+import com.ericadubois.console.NumberGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -26,7 +29,7 @@ public class Main {
         log.info("number = {}", number);
 
         // get Game bean from context(container)
-       /* Game game = context.getBean(Game.class)*/;
+       /* Game game = context.getBean(Game.class);*/
 
         // get Message Generator bean from context(container)
         MessageGenerator messageGenerator = context.getBean(MessageGenerator.class);

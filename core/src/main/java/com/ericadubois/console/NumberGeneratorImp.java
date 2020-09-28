@@ -1,6 +1,4 @@
-package com.ericadubois;
-
-import org.springframework.stereotype.Component;
+package com.ericadubois.console;
 
 import java.util.Random;
 

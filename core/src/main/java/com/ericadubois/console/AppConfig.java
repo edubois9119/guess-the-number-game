@@ -1,4 +1,4 @@
-package com.ericadubois;
+package com.ericadubois.console;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

@@ -1,5 +1,7 @@
-com\ericadubois\NumberGenerator.class
-com\ericadubois\GameImp.class
-com\ericadubois\Game.class
-com\ericadubois\Main.class
-com\ericadubois\NumberGeneratorImp.class
+com\ericadubois\console\AppConfig.class
+com\ericadubois\console\GameImp.class
+com\ericadubois\console\NumberGenerator.class
+com\ericadubois\console\Game.class
+com\ericadubois\console\MessageGenerator.class
+com\ericadubois\console\MessageGeneratorImp.class
+com\ericadubois\console\NumberGeneratorImp.class
