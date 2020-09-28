@@ -12,8 +12,10 @@ public class ConsoleNumberGuess {
     private static final Logger log = LoggerFactory.getLogger(ConsoleNumberGuess.class);
 
 
-    @EventListener
-    public void start(ContextRefreshedEvent contextRefreshedEvent) {
+    @EventListener(ContextRefreshedEvent.class)
+    //ContextRefreshedEvent is a necessary parameter for @EventListener annotation, can also be added
+    // to the event listener itself and removed from the method
+    public void start() {
         log.info("start() --> Container ready for use.");
     }
 
