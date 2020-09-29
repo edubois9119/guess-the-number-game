@@ -1,4 +1,4 @@
-package com.ericadubois.console;
+package com.ericadubois;
 
 public interface MessageGenerator {
 

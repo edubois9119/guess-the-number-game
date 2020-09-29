@@ -1,13 +1,18 @@
-package com.ericadubois.console;
+package com.ericadubois;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Random;
 
 
-public class NumberGeneratorImp implements NumberGenerator{
+public class NumberGeneratorImpl implements NumberGenerator{
 
     // --fields--
     private final Random random = new Random();
-    private int maxNumber = 100;
+
+    @Autowired
+    // no longer instantiated since its autowired, should get number from Game Config class
+    private int maxNumber;
 
     //--public methods--
     @Override

@@ -1,4 +1,4 @@
-package com.ericadubois.console;
+package com.ericadubois;
 
 public interface Game {
 
@@ -8,6 +8,7 @@ public interface Game {
     int getSmallest();
     int getBiggest();
     int getRemainingGuesses();
+    int getGuessCount();
     void reset();
     void check();
     boolean isValidNumberRange();

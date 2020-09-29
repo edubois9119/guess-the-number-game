@@ -1,4 +1,4 @@
-package com.ericadubois.console;
+package com.ericadubois;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,16 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 
-public class MessageGeneratorImp implements MessageGenerator {
+public class MessageGeneratorImpl implements MessageGenerator {
 
     //== constants ==
-    public static final Logger log = LoggerFactory.getLogger(MessageGeneratorImp.class);
+    public static final Logger log = LoggerFactory.getLogger(MessageGeneratorImpl.class);
 
 
     //== fields ==
     @Autowired
     private Game game;
-    private int guessCount = 10;
 
     //== init method ==
     @PostConstruct
@@ -37,7 +36,7 @@ public class MessageGeneratorImp implements MessageGenerator {
             return "Game Over, you lost... The number was " + game.getNumber();
         }else if(!game.isValidNumberRange()){
             return "Sorry, the number you guessed is not in the valid number range";
-        } else if (game.getRemainingGuesses() == guessCount){
+        } else if (game.getRemainingGuesses() == game.getGuessCount()){
             return "What is your first guess?";
         } else {
             String direction = "Lower";

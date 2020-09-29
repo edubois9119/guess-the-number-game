@@ -1,9 +1,9 @@
-package com.ericadubois;
+package com.ericadubois.console;
 
 
-import com.ericadubois.console.AppConfig;
-import com.ericadubois.console.MessageGenerator;
-import com.ericadubois.console.NumberGenerator;
+import com.ericadubois.MessageGenerator;
+import com.ericadubois.NumberGenerator;
+import com.ericadubois.config.AppConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;

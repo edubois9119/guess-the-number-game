@@ -1,4 +1,4 @@
-package com.ericadubois.console;
+package com.ericadubois;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,18 +8,19 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 
-public class GameImp implements Game{
+public class GameImpl implements Game{
 
     // == constants==
-    private static final Logger log = LoggerFactory.getLogger(GameImp.class);
+    private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
 
     // == fields==
 
     @Autowired
     private NumberGenerator numberGenerator;
 
+    @Autowired
     //how many times the player can guess the number before the game is over
-    private int guessCount = 10;
+    private int guessCount;
     //holds value of randomly generated number for player to guess
     private int number;
     //player's guess
@@ -89,6 +90,11 @@ public class GameImp implements Game{
     @Override
     public int getRemainingGuesses() {
         return remainingGuesses;
+    }
+
+    @Override
+    public int getGuessCount() {
+        return guessCount;
     }
 
     @Override
