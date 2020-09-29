@@ -11,6 +11,7 @@ public class NumberGeneratorImpl implements NumberGenerator{
     private final Random random = new Random();
 
     @Autowired
+    @MaxNumber
     // no longer instantiated since its autowired, should get number from Game Config class
     private int maxNumber;
 

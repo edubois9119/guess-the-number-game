@@ -1,5 +1,7 @@
 package com.ericadubois.config;
 
+import com.ericadubois.GuessCount;
+import com.ericadubois.MaxNumber;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,11 +14,13 @@ public class GameConfig {
     private int guessCount= 8;
     //== bean methods ==
     @Bean
+    @MaxNumber
     public  int maxNumber(){
         return maxNumber;
     }
 
     @Bean
+    @GuessCount
     public int guessCount(){
         return guessCount;
     }

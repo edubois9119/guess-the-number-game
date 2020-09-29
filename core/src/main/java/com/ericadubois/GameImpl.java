@@ -19,6 +19,7 @@ public class GameImpl implements Game{
     private NumberGenerator numberGenerator;
 
     @Autowired
+    @GuessCount
     //how many times the player can guess the number before the game is over
     private int guessCount;
     //holds value of randomly generated number for player to guess
