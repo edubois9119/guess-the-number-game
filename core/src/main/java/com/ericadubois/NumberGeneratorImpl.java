@@ -15,6 +15,12 @@ public class NumberGeneratorImpl implements NumberGenerator{
     // no longer instantiated since its autowired, should get number from Game Config class
     private int maxNumber;
 
+    @Autowired
+    @MinNumber
+    // no longer instantiated since its autowired, should get number from Game Config class
+    private int minNumber;
+
+
     //--public methods--
     @Override
     public int next() {
