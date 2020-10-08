@@ -8,19 +8,19 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 
-public class GameImpl implements Game{
+public class GameImp implements Game{
 
     // == constants==
-    private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(GameImp.class);
 
     // == fields==
 
     @Autowired
     private NumberGenerator numberGenerator;
 
+    //how many times the player can guess the number before the game is over
     @Autowired
     @GuessCount
-    //how many times the player can guess the number before the game is over
     private int guessCount;
     //holds value of randomly generated number for player to guess
     private int number;
@@ -45,8 +45,8 @@ public class GameImpl implements Game{
     @PostConstruct
     @Override
     public void reset() {
-        smallest = 0;
-        guess = 0;
+        smallest = numberGenerator.getMinNumber();
+        guess = numberGenerator.getMinNumber();
         remainingGuesses= guessCount;
         biggest= numberGenerator.getMaxNumber();
         number = numberGenerator.next();

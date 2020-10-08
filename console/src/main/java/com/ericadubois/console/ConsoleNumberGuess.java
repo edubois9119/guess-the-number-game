@@ -16,14 +16,15 @@ public class ConsoleNumberGuess {
     //== constants==
     private static final Logger log = LoggerFactory.getLogger(ConsoleNumberGuess.class);
 
-    // == fields ==
+    //== fields ==
+
     @Autowired
     private Game game;
 
     @Autowired
     private MessageGenerator messageGenerator;
 
-    // == events==
+    //== events ==
     @EventListener(ContextRefreshedEvent.class)
     //ContextRefreshedEvent is a necessary parameter for @EventListener annotation, can also be added
     // to the event listener itself and removed from the method
@@ -31,8 +32,7 @@ public class ConsoleNumberGuess {
         log.info("start() --> Container ready for use.");
 
         Scanner scanner = new Scanner(System.in);
-
-        while(true){
+        while (true){
             System.out.println(messageGenerator.getMainMessage());
             System.out.println(messageGenerator.getResultMessage());
 
@@ -41,19 +41,18 @@ public class ConsoleNumberGuess {
             game.setGuess(guess);
             game.check();
 
-            if(game.isGameWon() || game.isGameLost()){
+            if(game.isGameWon() || game.isGameLost()) {
                 System.out.println(messageGenerator.getResultMessage());
-                System.out.println("play again y/n?");
+                System.out.println("Play again y/n?");
 
                 String playAgainString = scanner.nextLine().trim();
-                if(!playAgainString.equalsIgnoreCase("y")){
+                if (!playAgainString.equalsIgnoreCase("y")){
                     break;
                 }
                 game.reset();
             }
         }
     }
-
-
 }
+
 

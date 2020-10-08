@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-//importing other config classes allows for modular configuration and the ability to load bean defs from multiple configs
 @Import(GameConfig.class)
 @ComponentScan(basePackages = "com.ericadubois")
 public class AppConfig {
@@ -15,17 +14,17 @@ public class AppConfig {
     //== bean methods==
     @Bean
     public NumberGenerator numberGenerator() {
-        return new NumberGeneratorImpl();
+        return new NumberGeneratorImp();
     }
 
     @Bean
     public Game game() {
-        return new GameImpl();
+        return new GameImp();
     }
 
     @Bean
     public MessageGenerator messageGenerator() {
-        return new MessageGeneratorImpl();
+        return new MessageGeneratorImp();
     }
 
 }

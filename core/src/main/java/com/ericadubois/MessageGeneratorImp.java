@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 
-public class MessageGeneratorImpl implements MessageGenerator {
+public class MessageGeneratorImp implements MessageGenerator {
 
     //== constants ==
-    public static final Logger log = LoggerFactory.getLogger(MessageGeneratorImpl.class);
+    public static final Logger log = LoggerFactory.getLogger(MessageGeneratorImp.class);
 
 
     //== fields ==
@@ -25,13 +25,13 @@ public class MessageGeneratorImpl implements MessageGenerator {
 
     @Override
     public String getMainMessage() {
-        return "Number is between " + game.getSmallest() + "and " + game.getBiggest() + ". Can you guess it?";
+        return "The number is between " + game.getSmallest() + " and " + game.getBiggest() + ". Can you guess it?";
     }
 
     @Override
     public String getResultMessage() {
         if(game.isGameWon()){
-            return "You guess it! The number was " + game.getNumber();
+            return "You guessed it! The number was " + game.getNumber();
         }else if(game.isGameLost()){
             return "Game Over, you lost... The number was " + game.getNumber();
         }else if(!game.isValidNumberRange()){
@@ -43,7 +43,7 @@ public class MessageGeneratorImpl implements MessageGenerator {
             if (game.getGuess() < game.getNumber()) {
                 direction = "Higher";
             }
-            return direction + "! You have " + game.getRemainingGuesses() + "guess(es) left";
+            return direction + "! You have " + game.getRemainingGuesses() + " guess(es) left";
         }
     }
 }

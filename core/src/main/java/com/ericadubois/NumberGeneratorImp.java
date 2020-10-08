@@ -5,20 +5,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Random;
 
 
-public class NumberGeneratorImpl implements NumberGenerator{
+public class NumberGeneratorImp implements NumberGenerator{
 
     // --fields--
     private final Random random = new Random();
 
     @Autowired
     @MaxNumber
-    // no longer instantiated since its autowired, should get number from Game Config class
     private int maxNumber;
+
+    @Autowired
+    @MinNumber
+    private int minNumber;
 
     //--public methods--
     @Override
     public int next() {
-        return random.nextInt(maxNumber);
+        //ex. min = 5 max = 20 -> max -min = 15 -> range = 0-15 + min --> 5 -20
+        return random.nextInt(maxNumber - minNumber) + minNumber;
     }
 
     @Override
