@@ -1,10 +1,13 @@
-package com.ericadubois.console;
+package com.ericadubois.config;
 
+import com.ericadubois.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 @Configuration
+@Import(GameConfig.class)
 @ComponentScan(basePackages = "com.ericadubois")
 public class AppConfig {
 
